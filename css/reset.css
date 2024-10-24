@@ -106,7 +106,6 @@ button {
     padding: 20px 16px;
     margin: 0px auto;
     border-radius: 0px;
-    background-color: white;
     /* height: 100%; */
     max-width: 1300px;
     width: 100%;
@@ -159,8 +158,12 @@ button {
     border: 1px solid var(--white-dark-color);
 }
 
+.shadow-1 {
+    box-shadow: var(--shadow-1);
+}
+
 input:focus {
-    border-color: var(--sky-blue-color);
+    border-color: var(--red);
 }
 
 input[type="checkbox"]:focus {
@@ -168,7 +171,7 @@ input[type="checkbox"]:focus {
 }
 
 .input-control::placeholder {
-    color: var(--gray-color);
+    color: var(--gray);
     opacity: .5;
 }
 
@@ -229,15 +232,18 @@ input[type="checkbox"]:focus {
 /*______  Button  ______*/
 .btn {
     cursor: pointer;
-    padding: 15px;
-    border-radius: 24px;
-    background-color: var(--dark-blue-color);
+    padding: 12px;
+    border-radius: 8px;
+    background-color: var(--green);
     color: var(--white-color);
     font-family: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn.disable {
-    opacity: .4;
+    opacity: .3;
 }
 
 
@@ -349,6 +355,9 @@ input[type="checkbox"]:focus {
     color: var(--green-color);
 }
 
+.medium-gray {
+    color: var(--medium-gray);
+}
 
 /*_____ Bg Color _____ */
 .bg-blue {
@@ -679,6 +688,10 @@ input[type="checkbox"]:focus {
 
 .radius-round {
     border-radius: 50%;
+}
+
+.border {
+    border: 1px solid var(--white-off);
 }
 
 .border-none {
