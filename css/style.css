@@ -387,11 +387,15 @@ button.no-vote {
     height: 100dvh;
 }
 
+.print-output-page header {
+    padding-top: 0;
+}
+
 .show-search-result.output {
     transform: scale(1);
     opacity: 1;
     max-width: 400px;
-    margin: 40px auto;
+    margin: 0px auto;
 }
 
 .show-search-result.output .text-left {
@@ -400,4 +404,150 @@ button.no-vote {
 
 .show-search-result.output .id {
     color: var(--medium-gray);
+}
+
+
+
+
+
+
+
+
+
+/********************
+****  Responsive  ***
+*********************/
+@media (max-width: 1080px) {
+    .directors.flex-between {
+        flex-direction: column;
+    }
+}
+
+
+
+@media (max-width: 768px) {
+    :root {
+        --fs-xs: 12px;
+        --fs-sm: 14px;
+        --fs-md: 14px;
+        --fs-lg: 15px;
+        --fs-xl: 16px;
+        --fs-xxl: 22px;
+        --fs-xxxl: 28px;
+    }
+
+    .voter-form .flex-between {
+        flex-direction: column;
+        gap: 25px;
+        width: 100%;
+    }
+
+    header {
+        padding: 0;
+    }
+
+    header .w-50 {
+        width: 100%;
+    }
+
+    header .flex-between,
+    .head.flex-between {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .sticker {
+        display: none;
+    }
+
+    .voter-form .input-item {
+        width: 100%;
+        padding-left: 0;
+        max-width: 350px;
+    }
+
+    .table-wrap {
+        max-width: 505px;
+        width: 100%;
+        overflow-x: scroll;
+        margin: 0 auto;
+    }
+
+    .table-wrap table {
+        width: 500px;
+    }
+
+
+    .logo-wrap.w-25 {
+        width: 100%;
+        display: unset;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .logo-wrap .logo {
+        width: 100%;
+        max-width: 100px;
+    }
+
+    .candidates-pic-wrap {
+        width: 75px !important;
+        height: 80px;
+    }
+
+    .candidates-pic {
+        height: 80px;
+        width: 100%;
+    }
+
+    .table-box {
+        width: 49px;
+        height: 50px;
+        margin: 0;
+        /* padding: 4px; */
+    }
+
+    .president,
+    .board-of-member {
+        width: 100%;
+        padding: 5px 0;
+    }
+
+    .instruction {
+        margin-top: 20px;
+        width: 100%;
+        padding-left: 12px;
+    }
+
+    .instruction li {
+        font-size: var(--fs-xs);
+    }
+
+    .head .head-middle {
+        position: relative;
+        text-align: center;
+        width: 70%;
+        display: none;
+    }
+
+    .ballot-box {
+        margin-top: 50px;
+    }
+
+    .main-content-area {
+        border: 2px solid var(--red);
+        padding: 5px;
+        position: relative;
+    }
+
+    .footer {
+        display: none;
+    }
+
+
+    .print-slip {
+        max-width: 300px;
+        margin: 0 auto;
+    }
 }
