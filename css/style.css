@@ -156,7 +156,7 @@ table .name-of {
 
 
 
-
+/* Board of member */
 .board-of-member {
     padding: 0 !important;
 }
@@ -269,8 +269,10 @@ button.no-vote {
 
 
 
-
-.box {
+/******************
+***  print slip  ***
+*******************/
+.card {
     padding: 6px 12px;
     position: relative;
     box-shadow: var(--shadow-2);
@@ -319,7 +321,9 @@ button.no-vote {
     transition: .2s linear;
 }
 
-/* show-search-result */
+/*_______  show-search-result _______*/
+
+
 .search-title {
     color: var(--medium-gray);
 }
@@ -329,6 +333,7 @@ button.no-vote {
     transition: ease-in-out .3s;
     opacity: 0;
 }
+
 
 .show-search-result.active {
     opacity: 1;
@@ -371,4 +376,28 @@ button.no-vote {
     font-size: var(--fs-sm);
     margin-top: 5px;
     text-align: left;
+}
+
+
+
+
+
+/* ___________  Output Page  _____________ */
+.print-output-page {
+    height: 100dvh;
+}
+
+.show-search-result.output {
+    transform: scale(1);
+    opacity: 1;
+    max-width: 400px;
+    margin: 40px auto;
+}
+
+.show-search-result.output .text-left {
+    color: var(--medium-gray);
+}
+
+.show-search-result.output .id {
+    color: var(--medium-gray);
 }

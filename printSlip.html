@@ -46,7 +46,7 @@
                         <div class="d-none error">please type number</div>
 
                         <!-- show search result -->
-                        <div class="show-search-result   box mt-4 ">
+                        <div class="show-search-result   card mt-4 ">
                             <div class="inner flex-between w-50 p-4">
                                 <div>
                                     <img src="https://img.freepik.com/premium-photo/male-worker-wearing-green-yellow-color-kit-isolated-white-background_1029679-144270.jpg?w=740"
@@ -59,9 +59,11 @@
                             </div>
                         </div>
 
+                        <!-- print button -->
                         <div class="mt-5 d-flex justify-end w-100 ">
-                            <button onclick="window.print()" class="btn  print-btn white-color  fs-lg gap-10"
-                                title="print">Print <img class="w-50" src="images/printer.png" alt=""></button>
+                            <button onclick="printSlipF('outputPrint.html')"
+                                class="btn  print-btn white-color  fs-lg gap-10" title="print">Print <img class="w-50"
+                                    src="images/printer.png" alt=""></button>
                         </div>
                     </div>
                 </div>
@@ -90,6 +92,19 @@
                 })
             }
             checkMemberF()
+
+
+
+
+
+            // Print function
+            function printSlipF(url) {
+                const printWindow = window.open(url, '_blank')
+
+                printWindow.addEventListener('load', function () {
+                    printWindow.print()
+                })
+            }
         </script>
     </body>
 
