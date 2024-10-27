@@ -1,133 +1,115 @@
 
-// vote button
+let hasVoted = false
+const presedientCanidate = document.getElementById('president-canidate')
+const pVoteButtons = presedientCanidate.querySelectorAll('button[title="vote"]')
+const pNovoteButtons = presedientCanidate.querySelectorAll('button[title="no vote"]')
 const voteButtons = document.querySelectorAll('button[title="vote"]')
-if (voteButtons) {
-    function voteF() {
-        voteButtons.forEach(btn => {
-            btn.addEventListener('click', function () {
-                this.innerText = "Voted"
-                btn.classList.add('active')
-                const unvoteButton = this.closest('tr').querySelector('button[title="no vote"]');
-                unvoteButton.disabled = true;
-            })
-        })
-    }
-}
-
-voteF()
-
-
-// unvote
 const novoteButtons = document.querySelectorAll('button[title="no vote"]')
-if (novoteButtons) {
-    function noVoteF() {
-        novoteButtons.forEach(btn => {
-            btn.addEventListener('click', function () {
-                this.innerText = 'No Vote'
-                btn.classList.add('no-vote')
-                const voteBtn = this.closest('tr').querySelector('button[title="vote"]')
-                voteBtn.disabled = true
-            })
-        })
+
+
+// Function to disable buttons
+function toggleButtons(buttons, shouldDisable, excludeButton = null) {
+    buttons.forEach(button => {
+        if (button !== excludeButton) {
+            button.disabled = shouldDisable;
+        }
+    });
+}
+
+
+
+
+function checkAllRowsForPrint() {
+    const rows = document.querySelectorAll('tbody .single.vote');
+    let allVoted = true; // Flag to check if all rows are voted on
+
+    rows.forEach(row => {
+        const voteButton = row.querySelector('button[title="vote"]');
+        const noVoteButton = row.querySelector('button[title="no vote"]');
+
+        if (!voteButton.disabled && !noVoteButton.disabled) {
+            allVoted = false; // At least one row is not voted
+        }
+    });
+
+    if (allVoted) {
+        setTimeout(() => {
+            window.print();
+        }, 1000);
     }
 }
 
-noVoteF()
 
 
 
+// Vote button logic
+function voteF() {
+    pVoteButtons.forEach(btn => {
+        btn.addEventListener('click', function () {
+            if (!hasVoted) {
+                this.innerText = "Voted";
+                this.classList.add('active');
 
-// counter function with a promise to handle asynchronous updates
-// function counter() {
-//     return new Promise(resolve => {
-//         // Select all elements with the class 'total-vote'
-//         const voteElements = document.querySelectorAll('.total-vote');
-//         let completed = 0; // To track when all counters are done
+                // Disable other vote buttons and all no-vote buttons
+                toggleButtons(pVoteButtons, true, this);
+                toggleButtons(pNovoteButtons, true);
 
-//         // Function to animate the counting from 0 to the final value
-//         voteElements.forEach(el => {
-//             const maxVote = parseInt(el.innerText); // Get the final value
-//             let currentVote = 0; // Start from 0
-//             const increment = Math.ceil(maxVote / 120); // Increment based on vote
-//             const speed = 60; // Set the delay between increments (in milliseconds)
+                hasVoted = true;
+                checkAllRowsForPrint()
+            }
+        });
+    });
 
-//             const updateCounter = () => {
-//                 currentVote += increment; // Increment the counter
-//                 if (currentVote > maxVote) {
-//                     currentVote = maxVote; // Stop at max if currentVote exceeds max
-//                 }
-//                 el.innerText = currentVote; // Update the element's text with current vote
+    // other vote buttons
+    voteButtons.forEach(btn => {
+        btn.addEventListener('click', function () {
+            this.innerText = "Voted"
+            btn.classList.add('active')
 
-//                 if (currentVote < maxVote) {
-//                     setTimeout(updateCounter, speed); // Continue incrementing
-//                 } else {
-//                     completed += 1; // Mark this counter as done
-//                     if (completed === voteElements.length) {
-//                         resolve(); // Resolve when all counters finish
-//                     }
-//                 }
-//             };
-
-//             // Start the counter animation
-//             setTimeout(updateCounter, speed);
-//         });
-//     });
-// }
-
-
-// // change vote
-// function changeVotes() {
-//     const voteElements = document.querySelectorAll('.total-vote');
-
-
-//     voteElements.forEach((el, index) => {
-//         setTimeout(() => {
-//             const currentVotes = parseInt(el.innerText, 10);
-
-
-//             const newVote = currentVotes + Math.floor(Math.random() * 10) + 1;
-//             el.innerText = newVote; // Set the new vote value
-//         }, index * 2000);
-//     });
-// }
+            const unvoteButton = this.closest('tr').querySelector('button[title="no vote"]');
+            unvoteButton.disabled = true;
+            checkAllRowsForPrint()
+        })
+    })
+}
 
 
 
-// function sortTableByVotes(element) {
-//     const tableBody = document.getElementById(element);
-//     const rows = [...tableBody.querySelectorAll('tr')]; // Convert NodeList to an array
+// No vote button logic
+function noVoteF() {
+    pNovoteButtons.forEach(btn => {
+        btn.addEventListener('click', function () {
+
+            this.innerText = 'No Vote';
+            this.classList.add('no-vote');
+
+            // Disable other no-vote buttons and all vote buttons
+            toggleButtons(pVoteButtons, true);
+            toggleButtons(pNovoteButtons, true, this);
+
+            hasVoted = true;
+            checkAllRowsForPrint()
+        });
+    });
+
+    // other no vote buttons
+    novoteButtons.forEach(btn => {
+        btn.addEventListener('click', function () {
+            this.innerText = "No Voted"
+            btn.classList.add('no-vote')
+
+            const voteButton = this.closest('tr').querySelector('button[title="vote"]')
+            voteButton.disabled = true
+            checkAllRowsForPrint()
+        })
+    })
+}
+
+// checkAllRowsForPrint()
+voteF();
+noVoteF();
 
 
-//     rows.sort((a, b) => {
-//         const voteA = parseInt(a.querySelector('.total-vote').innerText, 10);
-//         const voteB = parseInt(b.querySelector('.total-vote').innerText, 10);
-//         return voteB - voteA;
-//     });
-
-
-//     rows.forEach(row => tableBody.appendChild(row));
-
-
-//     rows.forEach((row, index) => {
-//         const titleCell = row.querySelector('.title.fw-bolder.fs-xxl');
-//         if (titleCell) {
-//             titleCell.innerText = index + 1; // Update the index to reflect new order
-//         }
-//     });
-// }
-
-
-// async function updateVotes() {
-//     await counter();
-//     changeVotes();
-//     sortTableByVotes('present-table');
-// }
-
-// // When the page reloads
-// document.addEventListener('DOMContentLoaded', function () {
-//     updateVotes(); // Run on page load
-//     setInterval(changeVotes, 15000); // Update votes every 15 seconds
-// });
 
 
 

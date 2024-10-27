@@ -136,7 +136,7 @@
                                     </thead>
 
 
-                                    <tbody>
+                                    <tbody id="president-canidate">
                                         <tr class="single-vote">
                                             <td class="title fw-bolder fs-xxl">1</td>
                                             <td class="text-center candidates-pic-wrap fit-content"><img
@@ -443,6 +443,27 @@
         </main>
 
         <script src="app.js"></script>
+        <script>
+
+
+            // default reload off
+            window.addEventListener("beforeunload", function (event) {
+                event.preventDefault(); // Prevent the default action
+                return undefined;
+            });
+
+            document.addEventListener("keydown", function (event) {
+                if (event.key === "F5" || (event.ctrlKey && event.key === "r")) {
+                    event.preventDefault();
+                }
+            });
+
+            document.addEventListener("contextmenu", function (event) {
+                event.preventDefault();
+            });
+
+
+        </script>
     </body>
 
 </html>
