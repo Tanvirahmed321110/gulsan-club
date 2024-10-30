@@ -11,17 +11,22 @@
     <body class="dashboard">
         <header class="container">
             <div>
-                <div class=" flex-between">
+                <div class="grid-3 align-center justify-end">
                     <div class="logo flex-center fw-bolder title">
                         <img src="https://www.zentleman.com/wp-content/uploads/2017/07/unnamed.png" alt="">
                     </div>
 
-                    <h1 class="title fs-xxxl gray">Dashboard</h1>
+                    <div class=" text-center">
+                        <h1 class="uppercase red-color   fw-extrabold">gulsan club</h1>
+                        <div class="title fw-bold dark ">Election For the Year 2024-2025</div>
+                    </div>
+
+                    <h1 class="title fs-xxxl text-right dashboard-text gray">Dashboard</h1>
                 </div>
             </div>
         </header>
 
-        <div class="container mt-4">
+        <div class="container live-box-wrapper mt-4">
             <div class="live-box"></div>
         </div>
 
@@ -30,29 +35,246 @@
                 <div class="cards mt-4">
                     <div class="grid-3 gap-30">
                         <div class="card title fs-xxl text-center border ">
-                            <img src="./images/voters.png" alt="">
-                            <div class="">Total Voters</div>
-                            <p class="fs-xxl mt-4 value">356</p>
+                            <img src="./images/members.png" alt="">
+                            <div class="">Total Members</div>
+                            <p class="fs-xxl  value">356</p>
                         </div>
                         <div class="card orange-color fs-xxl title text-center border ">
-                            <img src="images/ballots.png" alt="">
-                            <div class="fs-xxl">Total Votes</div>
+                            <img src="images/voters.png" alt="">
+                            <div class="fs-xxl">Total Voters</div>
                             <p class=" fs-xxl value">200</p>
                         </div>
                         <div class="card orange-color fs-xxl title text-center border ">
                             <img src="./images/yes.png" alt="">
-                            <div class="">Custing Votes</div>
+                            <div class="">Casted Votes</div>
                             <p class="fs-xxl mt-1 value">257</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="mt-50">
-                    <button onclick="window.location.href='countVote.html'"
-                        class="btn text-white fw-bold white-color">Result Genarted</button>
+                <!-- voter que -->
+                <div class="mt-5 voter-que">
+                    <div class="flex-between">
+                        <div class="title gray">Voter Que</div>
+                    </div>
+                    <div class="table-wrap mt-1">
+                        <table>
+                            <thead>
+                                <th>SL</th>
+                                <th>ID</th>
+                                <th>NAME</th>
+                                <th>PHOTO</th>
+                                <th>Action</th>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>1.</td>
+                                    <td>2322</td>
+                                    <td>MD Tanvir Ahmed</td>
+                                    <td>
+                                        <img class="img"
+                                            src="https://easy-peasy.ai/cdn-cgi/image/quality=80,format=auto,width=700/https://fdczvxmwwjwpwbeeqcth.supabase.co/storage/v1/object/public/images/50dab922-5d48-4c6b-8725-7fd0755d9334/3a3f2d35-8167-4708-9ef0-bdaa980989f9.png">
+                                        </img>
+                                    </td>
+                                    <td>
+                                        <button
+                                            class="btn text-center select-btn white-color fw-bold pt-2  px-4">Select</button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>2.</td>
+                                    <td>2322</td>
+                                    <td>MD Tanvir Ahmed</td>
+                                    <td>
+                                        <img class="img"
+                                            src="https://easy-peasy.ai/cdn-cgi/image/quality=80,format=auto,width=700/https://fdczvxmwwjwpwbeeqcth.supabase.co/storage/v1/object/public/images/50dab922-5d48-4c6b-8725-7fd0755d9334/3a3f2d35-8167-4708-9ef0-bdaa980989f9.png">
+                                        </img>
+                                    </td>
+                                    <td>
+                                        <button
+                                            class="btn text-center select-btn white-color fw-bold pt-2  px-4">Select</button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>3.</td>
+                                    <td>1223</td>
+                                    <td> Tanvir Islam </td>
+                                    <td>
+                                        <img class="img"
+                                            src="https://easy-peasy.ai/cdn-cgi/image/quality=80,format=auto,width=700/https://fdczvxmwwjwpwbeeqcth.supabase.co/storage/v1/object/public/images/50dab922-5d48-4c6b-8725-7fd0755d9334/3a3f2d35-8167-4708-9ef0-bdaa980989f9.png">
+                                        </img>
+                                    </td>
+                                    <td>
+                                        <button
+                                            class="btn text-center select-btn white-color fw-bold pt-2  px-4">Select</button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>4.</td>
+                                    <td>2322</td>
+                                    <td>Foysal Islam</td>
+                                    <td>
+                                        <img class="img"
+                                            src="https://easy-peasy.ai/cdn-cgi/image/quality=80,format=auto,width=700/https://fdczvxmwwjwpwbeeqcth.supabase.co/storage/v1/object/public/images/50dab922-5d48-4c6b-8725-7fd0755d9334/3a3f2d35-8167-4708-9ef0-bdaa980989f9.png">
+                                        </img>
+                                    </td>
+                                    <td>
+                                        <button
+                                            class="btn text-center select-btn white-color fw-bold pt-2  px-4">Select</button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>5.</td>
+                                    <td>44322</td>
+                                    <td>Habib Ahmed</td>
+                                    <td>
+                                        <img class="img"
+                                            src="https://easy-peasy.ai/cdn-cgi/image/quality=80,format=auto,width=700/https://fdczvxmwwjwpwbeeqcth.supabase.co/storage/v1/object/public/images/50dab922-5d48-4c6b-8725-7fd0755d9334/3a3f2d35-8167-4708-9ef0-bdaa980989f9.png">
+                                        </img>
+                                    </td>
+                                    <td>
+                                        <button
+                                            class="btn text-center select-btn white-color fw-bold pt-2  px-4">Select</button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>6.</td>
+                                    <td>5432</td>
+                                    <td>Kobir Khan</td>
+                                    <td>
+                                        <img class="img"
+                                            src="https://easy-peasy.ai/cdn-cgi/image/quality=80,format=auto,width=700/https://fdczvxmwwjwpwbeeqcth.supabase.co/storage/v1/object/public/images/50dab922-5d48-4c6b-8725-7fd0755d9334/3a3f2d35-8167-4708-9ef0-bdaa980989f9.png">
+                                        </img>
+                                    </td>
+                                    <td>
+                                        <button
+                                            class="btn text-center select-btn white-color fw-bold pt-2  px-4">Select</button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>7.</td>
+                                    <td>5432</td>
+                                    <td>Kobir Khan</td>
+                                    <td>
+                                        <img class="img"
+                                            src="https://easy-peasy.ai/cdn-cgi/image/quality=80,format=auto,width=700/https://fdczvxmwwjwpwbeeqcth.supabase.co/storage/v1/object/public/images/50dab922-5d48-4c6b-8725-7fd0755d9334/3a3f2d35-8167-4708-9ef0-bdaa980989f9.png">
+                                        </img>
+                                    </td>
+                                    <td>
+                                        <button
+                                            class="btn text-center select-btn white-color fw-bold pt-2  px-4">Select</button>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="mt-50 result-btn">
+                    <button disabled onclick="window.location.href='countVote.html'"
+                        class="btn  text-white fw-bold white-color"> Generate Result</button>
                 </div>
             </section>
         </main>
+
+
+        <div class="modal">
+            <div class="modal-content">
+                <button class="close-modal">
+                    <i class="ri-close-line"></i>
+                </button>
+                <div class="grid-2 gap-20 ">
+                    <div class="box single-booth">
+                        <img src="images/booth.png" alt="">
+                        Booth 1
+                    </div>
+                    <div class="box single-booth">
+                        <img src="images/booth.png" alt="">
+                        Booth 2
+                    </div>
+                    <div class="box single-booth ">
+                        <img src="images/booth.png" alt="">
+                        Booth 3
+                    </div>
+                    <div class="box single-booth">
+                        <img src="images/booth.png" alt="">
+                        Booth 4
+                    </div>
+                    <div class="box single-booth">
+                        <img src="images/booth.png" alt="">
+                        Booth 5
+                    </div>
+                    <div class="box single-booth">
+                        <img src="images/booth.png" alt="">
+                        Booth 6
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <script>
+
+            const selectBtns = document.querySelectorAll('.select-btn')
+            const modal = document.querySelector('.modal')
+            const closeModalBtn = document.querySelector('.close-modal');
+
+            if (selectBtns) {
+                selectBtns.forEach(btn => {
+                    btn.addEventListener('click', function () {
+                        modalOpen()
+                    })
+                })
+            }
+
+
+            // open
+            function modalOpen() {
+                modal.classList.add('active')
+            }
+
+
+            // close modal
+            function closeModal() {
+                modal.classList.remove('active');
+            }
+
+            modal.addEventListener('click', (event) => {
+                if (event.target === modal) {
+                    closeModal();
+                }
+            });
+
+            // close button click
+            closeModalBtn.addEventListener('click', closeModal);
+
+
+
+
+
+            // booth selected
+            const singleBooths = document.querySelectorAll('.single-booth')
+
+            singleBooths.forEach(each => {
+                each.addEventListener('click', function () {
+                    singleBooths.forEach(booth => booth.classList.remove('active'))
+                    each.classList.add('active')
+                    setTimeout(() => {
+                        window.location.href = './index.html'
+                    }, 2000)
+                })
+            })
+
+        </script>
     </body>
 
 </html>

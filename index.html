@@ -471,7 +471,7 @@
         <script>
 
 
-            // default reload off
+            // // default reload off
             // window.addEventListener("beforeunload", function (event) {
             //     event.preventDefault(); // Prevent the default action
             //     return undefined;
@@ -487,7 +487,9 @@
             //     event.preventDefault();
             // });
 
-
+            window.addEventListener('afterprint', () => {
+                window.location.href = './dashboard.html';
+            });
         </script>
     </body>
 

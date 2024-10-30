@@ -80,6 +80,7 @@
 
         <!-- <script src="app.js"></script> -->
         <script>
+
             function checkMemberF() {
                 const searchMemberInput = document.getElementById('search-member')
                 const searchMemberBtn = document.getElementById('search-member-btn')
@@ -87,11 +88,8 @@
 
                 searchMemberInput.addEventListener('input', function (e) {
                     const text = e.target.value;
-                    console.log(text)
-                    if (isNaN(text)) {
-                        document.querySelector('.error').classList.add('active')
-                        return e.target.value = ''
-                    }
+
+
                     document.querySelector('.error').classList.remove('active')
                 })
 
