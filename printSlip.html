@@ -58,11 +58,19 @@
                                         alt="">
                                 </div>
                                 <div class="text-left">
-                                    <div class="title  ">Md Tanvir Khan</div>
+                                    <div class="title">Md Tanvir Khan</div>
                                     <div class="title id mt-1">23455</div>
+                                    <div class="title">Booth 3</div>
                                 </div>
                             </div>
                         </div>
+
+
+                        <!-- QR Code -->
+                        <div class="flex-center">
+                            <div class="qr-code  d-none mt-4" id="qrcode"></div>
+                        </div>
+
 
                         <!-- print button -->
                         <div class="mt-5 d-flex justify-end w-100 ">
@@ -77,7 +85,9 @@
         </main>
 
 
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
+            integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <!-- <script src="app.js"></script> -->
         <script>
 
@@ -100,8 +110,34 @@
             checkMemberF()
 
 
+
+
+
+
+            // QR Code
+            const qrCode = document.getElementById('qrcode');
+            function generateQRCode(id) {
+                qrCode.innerHTML = "";
+
+                // Display QR code div
+                qrCode.style.display = 'block';
+
+                new QRCode(qrCode, {
+                    text: id
+                });
+            }
+
+
+            document.getElementById("search-member-btn").addEventListener("click", function () {
+                const inputField = document.getElementById("search-member");
+
+                // Get the ID from the input field
+                const memberId = inputField.value.trim();
+                generateQRCode(memberId);
+            });
+
             // Print function
-            function printSlipF(url) {
+            function printSlipF(url, qrTag) {
                 const printWindow = window.open(url, '_blank')
 
                 printWindow.addEventListener('load', function () {

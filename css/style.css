@@ -50,6 +50,37 @@
 }
 
 
+
+.marquee-container {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.marquee-content {
+    animation: scroll 10s linear infinite;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(100%);
+    }
+
+
+    100% {
+        transform: translateX(-80%);
+    }
+}
+
+.welcome {
+    height: 100dvh;
+}
+
+.welcome-img {
+    margin-top: 50px;
+    width: 500px;
+}
+
+
 /****************
 ****  Header  ***
 *****************/
@@ -426,7 +457,11 @@ button.no-vote {
     text-align: left;
 }
 
-
+.qr-code {
+    width: 150px;
+    padding: 10px;
+    border: 1px solid #e2e0e0;
+}
 
 
 
@@ -598,7 +633,6 @@ button.no-vote {
 
 
 .voter-que table tr {
-    border-bottom: 1px solid var(--light-gray);
     box-shadow: var(--shadow-2);
 }
 
@@ -614,9 +648,30 @@ button.no-vote {
     background-color: var(--white-off);
 }
 
-.voter-que table tr:hover {
-    background-color: var(--light-gray);
-    outline: 1px solid var(--orange);
+.voter-que table tr {
+    position: relative;
+}
+
+.voter-que table tbody tr {
+    position: relative;
+    /* Ensure the absolute positioning of the ::after element is relative to the row */
+}
+
+.voter-que table tbody tr::after {
+    content: '';
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%) scale(0);
+    width: 20px;
+    height: 20px;
+    background-color: var(--green);
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.voter-que table tbody tr:hover::after {
+    transform: translateY(-50%) scale(1);
 }
 
 /* select-btn */
