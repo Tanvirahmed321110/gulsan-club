@@ -43,20 +43,41 @@
                                 <div class="text-left">
                                     <div class="title">Md Tanvir Khan</div>
                                     <div class=" fs-lg   id mt-1">Voter No: 23455</div>
-                                </div>
-
-                                <!-- qr code -->
-                                <div class="flex-center">
-                                    <div class="print-qrcode mt-4"></div>
+                                    <div class="sub-title booth">Booth 3</div>
                                 </div>
                             </div>
+
+                        </div>
+                        <!-- qr code -->
+                        <div class="flex-center">
+                            <div id="qrcode" class="print-qrcode mt-4"></div>
                         </div>
                     </div>
                 </div>
             </section>
         </main>
 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+        <!-- Include QR Code library -->
+
         <script>
+            window.addEventListener('afterprint', () => {
+                window.location.href = './dashboard.html';
+            });
+
+
+            window.onload = function () {
+                const qrCodeContainer = document.getElementById('qrcode');
+                const voterId = "23455"; // Example ID for QR Code generation
+                qrCodeContainer.innerHTML = ""; // Clear any previous QR codes
+                new QRCode(qrCodeContainer, {
+                    text: voterId,
+                    width: 128,
+                    height: 128
+                });
+            };
+
+            // Redirect after printing
             window.addEventListener('afterprint', () => {
                 window.location.href = './dashboard.html';
             });

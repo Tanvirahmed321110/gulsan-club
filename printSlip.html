@@ -60,7 +60,7 @@
                                 <div class="text-left">
                                     <div class="title">Md Tanvir Khan</div>
                                     <div class="title id mt-1">23455</div>
-                                    <div class="title">Booth 3</div>
+                                    <div class="sub-title booth">Booth 3</div>
                                 </div>
                             </div>
                         </div>
@@ -133,7 +133,9 @@
 
                 // Get the ID from the input field
                 const memberId = inputField.value.trim();
-                generateQRCode(memberId);
+                if (memberId) {
+                    generateQRCode(memberId);
+                }
             });
 
             // Print function
