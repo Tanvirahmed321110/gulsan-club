@@ -1,11 +1,8 @@
 
 const presedientCanidate = document.getElementById('president-canidate')
 if (presedientCanidate) {
-    let hasVoted = false
     const pVoteButtons = presedientCanidate.querySelectorAll('button[title="vote"]')
-    const pNovoteButtons = presedientCanidate.querySelectorAll('button[title="no vote"]')
     const voteButtons = document.querySelectorAll('button[title="vote"]')
-    const novoteButtons = document.querySelectorAll('button[title="no vote"]')
 
 
 
@@ -19,26 +16,21 @@ if (presedientCanidate) {
     }
 
 
+    pVoteButtons.forEach(btn => {
+        btn.addEventListener('click', function () {
+            pVoteButtons.forEach(otherBtn => {
+                if (otherBtn !== btn) {
+                    otherBtn.disabled = true
+                }
+            })
+        })
+    })
+
+
 
 
     function checkAllRowsForPrint() {
         const rows = document.querySelectorAll('tbody .single.vote');
-        let allVoted = true; // Flag to check if all rows are voted on
-
-        rows.forEach(row => {
-            const voteButton = row.querySelector('button[title="vote"]');
-            const noVoteButton = row.querySelector('button[title="no vote"]');
-
-            if (!voteButton.disabled && !noVoteButton.disabled) {
-                allVoted = false; // At least one row is not voted
-            }
-        });
-
-        if (allVoted) {
-            setTimeout(() => {
-                window.print();
-            }, 1000);
-        }
     }
 
 
@@ -46,30 +38,11 @@ if (presedientCanidate) {
 
     // Vote button logic
     function voteF() {
-        pVoteButtons.forEach(btn => {
-            btn.addEventListener('click', function () {
-                if (!hasVoted) {
-                    this.innerText = "Voted";
-                    this.classList.add('active');
-
-                    // Disable other vote buttons and all no-vote buttons
-                    toggleButtons(pVoteButtons, true, this);
-                    toggleButtons(pNovoteButtons, true);
-
-                    hasVoted = true;
-                    checkAllRowsForPrint()
-                }
-            });
-        });
-
         // other vote buttons
         voteButtons.forEach(btn => {
             btn.addEventListener('click', function () {
-                this.innerText = "Voted"
+                btn.innerHTML = '<img src="./images/check-mark.png" alt="Voted" style="width: 50px; height: 50px;">'
                 btn.classList.add('active')
-
-                const unvoteButton = this.closest('tr').querySelector('button[title="no vote"]');
-                unvoteButton.disabled = true;
                 checkAllRowsForPrint()
             })
         })
@@ -78,38 +51,38 @@ if (presedientCanidate) {
 
 
     // No vote button logic
-    function noVoteF() {
-        pNovoteButtons.forEach(btn => {
-            btn.addEventListener('click', function () {
+    // function noVoteF() {
+    //     pNovoteButtons.forEach(btn => {
+    //         btn.addEventListener('click', function () {
 
-                this.innerText = 'No Vote';
-                this.classList.add('no-vote');
+    //             this.innerText = 'No Vote';
+    //             this.classList.add('no-vote');
 
-                // Disable other no-vote buttons and all vote buttons
-                toggleButtons(pVoteButtons, true);
-                toggleButtons(pNovoteButtons, true, this);
+    //             // Disable other no-vote buttons and all vote buttons
+    //             toggleButtons(pVoteButtons, true);
+    //             toggleButtons(pNovoteButtons, true, this);
 
-                hasVoted = true;
-                checkAllRowsForPrint()
-            });
-        });
+    //             hasVoted = true;
+    //             checkAllRowsForPrint()
+    //         });
+    //     });
 
-        // other no vote buttons
-        novoteButtons.forEach(btn => {
-            btn.addEventListener('click', function () {
-                this.innerText = "No Voted"
-                btn.classList.add('no-vote')
+    //     // other no vote buttons
+    //     novoteButtons.forEach(btn => {
+    //         btn.addEventListener('click', function () {
+    //             this.innerText = "No Voted"
+    //             btn.classList.add('no-vote')
 
-                const voteButton = this.closest('tr').querySelector('button[title="vote"]')
-                voteButton.disabled = true
-                checkAllRowsForPrint()
-            })
-        })
-    }
+    //             const voteButton = this.closest('tr').querySelector('button[title="vote"]')
+    //             voteButton.disabled = true
+    //             checkAllRowsForPrint()
+    //         })
+    //     })
+    // }
 
     // checkAllRowsForPrint()
     voteF();
-    noVoteF();
+    // noVoteF();
 }
 
 

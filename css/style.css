@@ -51,33 +51,27 @@
 
 
 
-.marquee-container {
-    overflow: hidden;
-    white-space: nowrap;
-}
-
-.marquee-content {
-    animation: scroll 10s linear infinite;
-}
-
-@keyframes scroll {
-    0% {
-        transform: translateX(100%);
-    }
-
-
-    100% {
-        transform: translateX(-80%);
-    }
-}
-
-.welcome {
+/*____________  Welcome ___________ */
+.welcome,
+.thanks {
     height: 100dvh;
 }
 
+.welcome header {
+    padding-top: 0;
+}
+
+.welcome .logo img {
+    width: 150px;
+}
+
 .welcome-img {
-    margin-top: 50px;
-    width: 500px;
+    margin-top: 5px;
+    width: 450px;
+}
+
+.welcome-text {
+    word-spacing: 2px;
 }
 
 
@@ -561,7 +555,8 @@ button.no-vote {
     position: relative;
 }
 
-.dashboard .result-btn button {
+.dashboard .result-btn button,
+.confirm-btn {
     width: 100%;
     padding: 25px;
     font-size: var(--fs-xl);
@@ -569,6 +564,9 @@ button.no-vote {
     word-spacing: 5px;
 }
 
+.confirm-btn:hover {
+    background-color: var(--dark);
+}
 
 /* __________  scrollbar __________ */
 ::-webkit-scrollbar {
