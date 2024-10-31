@@ -568,6 +568,11 @@ button.no-vote {
     background-color: var(--dark);
 }
 
+button.confirm-btn:disabled:hover {
+    background-color: unset;
+}
+
+
 /* __________  scrollbar __________ */
 ::-webkit-scrollbar {
     width: 12px;
