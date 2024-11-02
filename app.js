@@ -1,56 +1,83 @@
 const presedientCanidate = document.getElementById('president-canidate');
-let clickedCount = 0;
 let anyPresidentClicked = false;
 
 if (presedientCanidate) {
     const confirmButton = document.querySelector('.confirm-btn');
-    confirmButton.setAttribute('disabled', true); // Ensure confirm button is disabled initially
+    if (confirmButton) {
+        confirmButton.setAttribute('disabled', true);
+    }
 
-    const pVoteButtons = presedientCanidate.querySelectorAll('button[title="vote"]');
+    const pVoteButtons = presedientCanidate.querySelectorAll('.president button[title="vote"]');
     const voteButtons = document.querySelectorAll('.directors button[title="vote"]');
+    const directorRows = document.querySelectorAll('.directors .single');
 
     function checkConditions() {
         anyPresidentClicked = Array.from(pVoteButtons).some(button => button.classList.contains('active'));
-        console.log("anyPresidentClicked:", anyPresidentClicked);
-        console.log("clickedCount:", clickedCount, "of", voteButtons.length);
 
-        if (clickedCount === voteButtons.length && anyPresidentClicked) {
+        const allRowsHaveDisabled = Array.from(directorRows).every(row => {
+            return Array.from(row.querySelectorAll('button[title="vote"]')).some(btn => btn.classList.contains('active')
+            );
+        });
+
+        if (allRowsHaveDisabled && anyPresidentClicked) {
             confirmButton.removeAttribute('disabled');
             console.log('Conditions met: Confirm button enabled');
+        } else {
+            confirmButton.setAttribute('disabled', true);
         }
+    }
+
+    function handleVote(btn) {
+        const row = btn.closest('tr');
+
+        const buttons = row.querySelectorAll('button[title="vote"]');
+
+        buttons.forEach(b => {
+            if (b !== btn) {
+                b.disabled = true;
+                b.classList.add('disabled');
+            }
+        });
     }
 
     // Vote button logic for directors
     voteButtons.forEach(btn => {
         btn.addEventListener('click', function () {
             if (!btn.classList.contains('active')) {
-                clickedCount++;
+                btn.innerHTML = '<img src="./images/check-mark.png" alt="Voted" style="width: 50px; height: 50px;">';
+                btn.classList.add('active');
+                handleVote(btn);
             }
-            btn.innerHTML = '<img src="./images/check-mark.png" alt="Voted" style="width: 50px; height: 50px;">';
-            btn.classList.add('active');
 
-            checkConditions(); // Check conditions after each click
+            checkConditions();
         });
     });
 
     // President vote button logic
     pVoteButtons.forEach(btn => {
         btn.addEventListener('click', function () {
-            pVoteButtons.forEach(pBtn => pBtn.disabled = (pBtn !== btn));
+            // Disable all other president buttons
+            pVoteButtons.forEach(pBtn => {
+                if (pBtn !== btn) {
+                    pBtn.disabled = true;
+                    pBtn.classList.add('disabled');
+                }
+            });
             btn.classList.add('active');
-
             checkConditions(); // Check conditions after each president click
         });
     });
 
-    confirmButton.addEventListener('click', function () {
-        const sure = confirm('Are you sure');
-        if (sure) {
-            window.location.href = './thanks.html';
-        }
-    });
-
+    if (confirmButton) {
+        confirmButton.addEventListener('click', function () {
+            const sure = confirm('Are you sure?');
+            if (sure) {
+                window.location.href = './thanks.html';
+            }
+        });
+    }
 }
+
 
 
 

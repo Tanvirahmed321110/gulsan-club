@@ -897,3 +897,14 @@ button.confirm-btn:disabled:hover {
         margin: 25px auto;
     }
 }
+
+
+
+
+.directors .table-wrap tr {
+    /* width: 100%;
+    background-color: red;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); */
+
+}
