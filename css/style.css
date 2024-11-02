@@ -102,6 +102,11 @@ header .voter-form input {
 
 .voter-form .input-item {
     width: 40%;
+    margin-top: 10px;
+}
+
+.input-item.img {
+    margin-top: -19px;
 }
 
 .voter-form .border-dot {
