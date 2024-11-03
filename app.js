@@ -70,10 +70,8 @@ if (presedientCanidate) {
 
     if (confirmButton) {
         confirmButton.addEventListener('click', function () {
-            const sure = confirm('Are you sure?');
-            if (sure) {
-                window.location.href = './thanks.html';
-            }
+            const modal = document.querySelector('.modal')
+            modal.classList.add('active')
         });
     }
 }

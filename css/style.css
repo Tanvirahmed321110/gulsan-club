@@ -364,6 +364,7 @@ button.no-vote {
 
 .print-page {
     background-color: var(--white-off);
+    min-height: 100dvh;
 }
 
 .print-slip .search {
@@ -437,10 +438,12 @@ button.no-vote {
 .show-search-result img {
     width: 100px;
     height: 100px;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     padding: 4px;
     border: 1px solid var(--light-gray);
+    margin: 5px auto;
 }
+
 
 .print-btn {
     padding: 4px 12px;
