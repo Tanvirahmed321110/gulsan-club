@@ -21,7 +21,6 @@ if (presedientCanidate) {
 
         if (allRowsHaveDisabled && anyPresidentClicked) {
             confirmButton.removeAttribute('disabled');
-            console.log('Conditions met: Confirm button enabled');
         } else {
             confirmButton.setAttribute('disabled', true);
         }

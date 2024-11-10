@@ -905,9 +905,20 @@ button.confirm-btn:disabled:hover {
 
 
 .directors .table-wrap tr {
-    /* width: 100%;
-    background-color: red;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); */
+    /* background-color: red;
+    display: grid; */
+    grid-template-columns: repeat(2, 1fr);
+}
 
+.verified {
+    margin-top: 0px;
+    color: var(--dark);
+    padding: 15px;
+    padding-top: 0;
+    width: 200px;
+    margin: 0 auto;
+}
+
+.verified img {
+    border: none;
 }
