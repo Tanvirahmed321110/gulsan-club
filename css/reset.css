@@ -234,7 +234,7 @@ input[type="checkbox"]:focus {
     cursor: pointer;
     padding: 12px;
     border-radius: 8px;
-    background-color: var(--green);
+    background-color: var(--orange);
     color: var(--white-color);
     font-family: inherit;
     display: flex;

@@ -577,10 +577,11 @@ button.no-vote {
     font-size: var(--fs-xl);
     text-transform: uppercase;
     word-spacing: 5px;
+    /* color: var(--dark); */
 }
 
 .confirm-btn:hover {
-    background-color: var(--dark);
+    background-color: var(--green);
 }
 
 button.confirm-btn:disabled:hover {

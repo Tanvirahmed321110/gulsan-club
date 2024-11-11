@@ -60,6 +60,7 @@ if (presedientCanidate) {
                 if (pBtn !== btn) {
                     pBtn.disabled = true;
                     pBtn.classList.add('disabled');
+                    btn.innerHTML = '<img src="./images/check-mark.png" alt="Voted" style="width: 50px; height: 50px;">';
                 }
             });
             btn.classList.add('active');

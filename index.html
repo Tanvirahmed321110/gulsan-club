@@ -437,9 +437,9 @@
         <div class="modal ">
             <div class="modal-content flex-center flex-column">
                 <button class="close-modal d-none">X</button>
-                <div class="title  text-center fs-xxl">Are You Sure?</div>
+                <div class="title  text-center fs-xxl">Your vote will be casted.</div>
                 <div class=" w-100 flex-center">
-                    <button id="second-confirm" class="btn fw-bold px-4 fs-xl white-color mt-4">Yes</button>
+                    <button id="second-confirm" class="btn fw-bold px-4 fs-xl white-color mt-4">Print my Ballot</button>
                 </div>
             </div>
         </div>
@@ -447,22 +447,6 @@
         <script src="app.js"></script>
         <script>
 
-
-            // // default reload off
-            // window.addEventListener("beforeunload", function (event) {
-            //     event.preventDefault(); // Prevent the default action
-            //     return undefined;
-            // });
-
-            // document.addEventListener("keydown", function (event) {
-            //     if (event.key === "F5" || (event.ctrlKey && event.key === "r")) {
-            //         event.preventDefault();
-            //     }
-            // });
-
-            // document.addEventListener("contextmenu", function (event) {
-            //     event.preventDefault();
-            // });
 
             window.addEventListener('afterprint', () => {
                 window.location.href = './dashboard.html';
